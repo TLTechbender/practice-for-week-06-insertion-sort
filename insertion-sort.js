@@ -1,7 +1,31 @@
 // Insertion Sort out-of-place
 // Do not modify the original array
 function insertionSort(arr) {
-  /*
+   let copyArr = arr.slice();
+	let sorted = [copyArr.shift()];
+	while(copyArr.length){
+      let curr= copyArr.shift();
+      sorted.unshift(null);
+
+
+		for(let i=0; i<sorted.length; i++){
+
+               if(i===sorted.length -1 || sorted[i+1] > curr){
+
+     sorted[i] = curr;
+		       console.log(sorted);
+		       break;
+
+	       }
+[sorted[i+1], sorted[i]] = [sorted[i], sorted[i+1]];			
+		}
+	}
+
+ return sorted; 
+	
+
+// Honestly, I just copied the answer all the way, cos I feel this problem set requires the person solving it to think programmatically and I'm currently not at that level, I still have a long way to go!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	/*
   Pseudocode:
 
   Copy the original array
@@ -41,6 +65,36 @@ function insertionSortInPlace(arr) {
   */
 
   // Your code here
+let divider=0;
+
+	while(divider<arr.length){
+     let current = arr[divider];
+
+	let insertionPoint = divider;
+
+
+
+		for(let i= divider; i>=0; i--){
+             insertionPoint =i;
+             
+         if(arr[i-1]< current){
+          insertionPoint =i;
+
+        break;
+	 } else{
+          arr[i] = arr[i-1];
+	}
 }
+arr.splice(insertionPoint,1,current);
+	divider++;
+	console.log(arr.join(","));
+}
+return arr;
+
+
+//Guyyyyyyyyyyyyyyyyy, I'm also struggling to understand this one like damn, so I guess I better start reading some programming books soon!!!!!!!!!!!
+
+}
+
 
 module.exports = [insertionSort, insertionSortInPlace];
